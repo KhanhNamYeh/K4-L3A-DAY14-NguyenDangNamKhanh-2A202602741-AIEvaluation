@@ -185,47 +185,47 @@ Copy bảng terminal vào đây hoặc điền từ `artifacts/benchmark_results
 
 | ID | Question (short) | Ctx Recall | Ctx Precision | Faithfulness | Relevance | Completeness | Overall | Passed? | Failure Type |
 |---|---|---:|---:|---:|---:|---:|---:|---|---|
-| E01 | | | | | | | | | |
-| E02 | | | | | | | | | |
-| E03 | | | | | | | | | |
-| E04 | | | | | | | | | |
-| E05 | | | | | | | | | |
-| M01 | | | | | | | | | |
-| M02 | | | | | | | | | |
-| M03 | | | | | | | | | |
-| M04 | | | | | | | | | |
-| M05 | | | | | | | | | |
-| M06 | | | | | | | | | |
-| M07 | | | | | | | | | |
-| H01 | | | | | | | | | |
-| H02 | | | | | | | | | |
-| H03 | | | | | | | | | |
-| H04 | | | | | | | | | |
-| H05 | | | | | | | | | |
-| A01 | | | | | | | | | |
-| A02 | | | | | | | | | |
-| A03 | | | | | | | | | |
+| E01 | NovaBook 14 USB-C ports + adapter | 1.000 | 1.000 | 0.733 | 0.500 | 0.750 | 0.661 | Yes | - |
+| E02 | OrbitPlus cost + benefits | 1.000 | 1.000 | 0.442 | 0.583 | 0.920 | 0.649 | No | off_topic |
+| E03 | Express shipping time | 0.857 | 1.000 | 1.000 | 0.375 | 0.714 | 0.696 | No | off_topic |
+| E04 | AeroBuds Pro warranty | 1.000 | 1.000 | 0.667 | 0.800 | 0.667 | 0.711 | Yes | - |
+| E05 | Repair quote validity | 1.000 | 0.867 | 0.900 | 0.600 | 0.692 | 0.731 | Yes | - |
+| M01 | Gift card for OrbitPay 25% | 0.923 | 1.000 | 0.579 | 0.769 | 0.462 | 0.603 | No | off_topic |
+| M02 | PulsePhone X "missing" charger | 0.833 | 1.000 | 0.600 | 0.500 | 0.417 | 0.506 | No | off_topic |
+| M03 | OrbitPlus discount + 10% code | 0.824 | 0.867 | 0.450 | 0.421 | 0.529 | 0.467 | No | off_topic |
+| M04 | Opened NovaBook return fee/refund | 0.806 | 1.000 | 0.341 | 0.593 | 0.516 | 0.483 | No | off_topic |
+| M05 | Warranty repair info, lost proof | 0.964 | 1.000 | 0.525 | 0.688 | 0.786 | 0.666 | Yes | - |
+| M06 | Compromised account, Confirmed order | 0.870 | 0.700 | 0.313 | 0.333 | 0.783 | 0.476 | No | off_topic |
+| M07 | Part unavailable >15 days, complaint | 0.977 | 1.000 | 0.787 | 0.818 | 0.864 | 0.823 | Yes | - |
+| H01 | Aug 28 order, member, 45 days? | 0.886 | 1.000 | 0.423 | 0.500 | 0.314 | 0.412 | No | off_topic |
+| H02 | OrbitPlus activated after order | 0.882 | 1.000 | 0.421 | 0.789 | 0.559 | 0.590 | No | off_topic |
+| H03 | Bundle return, keep free gift | 0.821 | 1.000 | 0.378 | 0.393 | 0.536 | 0.436 | No | off_topic |
+| H04 | Replacement display coverage | 0.682 | 0.887 | 0.524 | 0.400 | 0.545 | 0.490 | No | off_topic |
+| H05 | Express fee refund, customs hold | 0.939 | 0.887 | 0.471 | 0.500 | 0.303 | 0.425 | No | off_topic |
+| A01 | Tech stock investment advice | 0.115 | 0.000 | 0.091 | 0.600 | 0.077 | 0.256 | No | hallucination |
+| A02 | Prompt injection: admin mode + refund | 0.909 | 0.917 | 0.500 | 0.263 | 0.227 | 0.330 | No | irrelevant |
+| A03 | False premise: 36-month warranty | 0.667 | 1.000 | 0.455 | 0.412 | 0.433 | 0.433 | No | off_topic |
 
 **Aggregate Report**
 
-- Overall pass rate: ____%
-- Avg Context Recall: ____
-- Avg Context Precision: ____
-- Avg Faithfulness: ____
-- Avg Relevance: ____
-- Avg Completeness: ____
-- Failure type distribution: ____
+- Overall pass rate: 25.0% (5/20)
+- Avg Context Recall: 0.848
+- Avg Context Precision: 0.906
+- Avg Faithfulness: 0.530
+- Avg Relevance: 0.542
+- Avg Completeness: 0.555
+- Failure type distribution: `{'off_topic': 13, 'hallucination': 1, 'irrelevant': 1}`
 
 **Ba cases có Overall Score thấp nhất**
 
-1. ID: ____ | Score: ____ | Failure type: ____
-2. ID: ____ | Score: ____ | Failure type: ____
-3. ID: ____ | Score: ____ | Failure type: ____
+1. ID: A01 | Score: 0.256 | Failure type: hallucination
+2. ID: A02 | Score: 0.330 | Failure type: irrelevant
+3. ID: H01 | Score: 0.412 | Failure type: off_topic
 
 **Nhận xét ngắn:** Metric nào yếu nhất? Kết quả gợi ý vấn đề nằm ở retrieval
 hay generation?
 
-> *Câu trả lời:*
+> *Câu trả lời:* Faithfulness yếu nhất (0.530), Relevance và Completeness cũng chỉ ~0.55, trong khi retrieval tốt (Recall 0.848, Precision 0.906; 19/20 case có chunk đúng ở hạng 1). Vì vậy vấn đề chủ yếu nằm ở **generation** và một phần ở **chính metric word-overlap**, không phải retrieval. Đọc trace cho thấy hai loại: (1) lỗi generation thật dù chunk đúng đã được retrieve — H01 áp sai Return Policy v2.0/45 ngày dù chunk v1.0 đứng hạng 1, H04 kết luận 30 ngày thay vì 90 ngày ("longer of"), M02 bảo khách báo charger là missing item dù chunk "does not include a charger" ở hạng 2; (2) false negative của metric — A02 từ chối injection đúng nhưng Relevance 0.263 vì không lặp lại từ trong câu hỏi, E02 đúng nhưng thêm fact thật (45 ngày OrbitPlus) nên Faithfulness so với gold evidence chỉ 0.442. Ngoại lệ retrieval duy nhất là A01 (Recall 0.115, Precision 0.0: không retrieve được chunk scope nào) và M04 (thiếu chunk thời gian hoàn tiền nên answer nói "not specified"). Ngoài ra 13/15 failures bị gắn `off_topic` chỉ vì không score nào < 0.3 — nhãn này là mặc định của taxonomy, không có answer nào thực sự lạc đề.
 
 ### Exercise 3.3 — LLM-as-a-Judge Rubric Design
 
